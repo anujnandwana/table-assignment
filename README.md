@@ -8,7 +8,8 @@ In the project directory, you can run:
 
 ### `Run the project`
 
-- Clone the repo and run npm install
+- Clone the repo : git clone https://github.com/anujnandwana/table-assignment.git
+- npm install
 - If you are facing node version issue install : npm install v20.14.0
 - Use the same version : npm use v20.14.0
 
