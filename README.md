@@ -9,9 +9,14 @@ In the project directory, you can run:
 ### `Run the project`
 
 - Clone the repo : git clone https://github.com/anujnandwana/table-assignment.git
-- npm install
+- cd table-assignment
+- Run npm install to download dependencies.
 - If you are facing node version issue install : npm install v20.14.0
 - Use the same version : npm use v20.14.0
+- Run npm start to run the project
+- Run npm test for running the test cases (For running all test cases press a)
+
+- Feel free to contact me if you face nay issue : anujnandwana@gmail.com 
 
 ### `npm start`
 
