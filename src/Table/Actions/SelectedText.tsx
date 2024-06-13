@@ -6,7 +6,7 @@ interface SelectedTextProps {
 
 const SelectedText: React.FC<SelectedTextProps> = ({ selectedRowIds }) => {
     return (
-        <span className="selected-text" role="selected rows">
+        <span className="selected-text" role="status">
             {!selectedRowIds.length
                 ? "None Selected"
                 : `Selected ${selectedRowIds.length}`}
