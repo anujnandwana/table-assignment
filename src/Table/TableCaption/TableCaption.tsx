@@ -34,7 +34,7 @@ const TableCaption: React.FC<TableCaptionProps> = ({
 
   return (
     <caption>
-      <SelectAll selectAll={selectAll} setSelectedRowIds={setSelectedRowIds} tableData={tableData} />
+      <SelectAll selectAll={selectAll} selectedRowIds={selectedRowIds} setSelectedRowIds={setSelectedRowIds} tableData={tableData} />
       <SelectedText selectedRowIds={selectedRowIds} />
       <DownloadAction downloadAbleData={downloadAbleData} />
     </caption>

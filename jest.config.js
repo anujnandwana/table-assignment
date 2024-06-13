@@ -11,7 +11,7 @@ module.exports = {
   moduleNameMapper: {
     "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
   },
-  setupFilesAfterEnv: ["./src/setupTests.ts"],
+  // setupFilesAfterEnv: ["./src/setupTests.ts"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   watchPlugins: [],
 };

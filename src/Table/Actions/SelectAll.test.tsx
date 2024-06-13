@@ -8,17 +8,17 @@ describe('SelectAll component', () => {
     { id: "mockedId1", device: 'Device 2', path: '/path/2', name: 'jui2', status: 'available' }
   ];
 
-  const setSelectedRowIds = jest.fn()
+  const setSelectedRowIds = jest.fn();
   const tableData = mockData;
 
   test('DownloadAction component should match snapshot', () => {
-    const component = mount(<SelectAll selectAll={false} setSelectedRowIds={setSelectedRowIds} tableData = {tableData}/>);
+    const component = mount(<SelectAll selectedRowIds ={[]} selectAll={false} setSelectedRowIds={setSelectedRowIds} tableData = {tableData}/>);
     expect(component).toMatchSnapshot();
   });
 
   test('selectAll Checkbox on click select all rows when checked and remove all rows when unchecked', () => {
     const setSelectedRowIds = jest.fn()
-    const component = mount(<SelectAll selectAll={false} setSelectedRowIds={setSelectedRowIds} tableData = {tableData}/>);
+    const component = mount(<SelectAll selectedRowIds ={[]} selectAll={false} setSelectedRowIds={setSelectedRowIds} tableData = {tableData}/>);
     const selectAllCheckbox = component.find("input");
 
     selectAllCheckbox.at(0).simulate('change', { target: { checked: true } });
@@ -31,9 +31,18 @@ describe('SelectAll component', () => {
     expect(setSelectedRowIds).toHaveBeenLastCalledWith([])
   });
 
+  test('selectAll check indeterminate state if one is selected out of 2 ', () => {
+    const setSelectedRowIds = jest.fn()
+    const component = mount(<SelectAll selectedRowIds ={["mockedId"]} selectAll={false} setSelectedRowIds={setSelectedRowIds} tableData = {tableData}/>);
+    const selectAllCheckbox = component.find("input");
+
+    expect(selectAllCheckbox.length).toBe(1);
+    expect((selectAllCheckbox.getDOMNode() as any).indeterminate).toBe(true);
+  });
+
   test('selectAll Checkbox on key Up select all rows when checked', () => {
     const setSelectedRowIds = jest.fn()
-    const component = mount(<SelectAll selectAll={false} setSelectedRowIds={setSelectedRowIds} tableData = {tableData}/>);
+    const component = mount(<SelectAll selectedRowIds ={[]}  selectAll={false} setSelectedRowIds={setSelectedRowIds} tableData = {tableData}/>);
     const selectAllCheckbox = component.find("input");
 
     selectAllCheckbox.at(0).simulate('keyup', { key: 'Enter', keyCode: 13, which: 13 });
